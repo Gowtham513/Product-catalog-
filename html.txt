@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Catalog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>📦 Product Catalog</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Catalog -->
+  <main>
+    <div class="catalog" id="catalog"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 My Product Catalog. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+  const products = [
+    { name: "Laptop", price: 750, category: "Electronics", description: "Powerful laptop for work and gaming", image: "images/laptop.jpg" },
+    { name: "Headphones", price: 120, category: "Audio", description: "Noise-cancelling wireless headphones", image: "images/headphones.jpg" },
+    { name: "Sneakers", price: 90, category: "Fashion", description: "Comfortable running sneakers", image: "images/sneakers.jpg" },
+    { name: "Smartwatch", price: 200, category: "Electronics", description: "Track your fitness and notifications", image: "images/product4.png" },
+    { name: "Backpack", price: 80, category: "Accessories", description: "Durable backpack for travel and work", image: "images/product5.jpg" },
+    ];
+
+    const catalog = document.getElementById("catalog");
+
+    products.forEach(product => {
+      const div = document.createElement("div");
+      div.classList.add("product");
+      div.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p class="price">$${product.price}</p>
+        <p><b>Category:</b> ${product.category}</p>
+        <p>${product.description}</p>
+      `;
+      catalog.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
